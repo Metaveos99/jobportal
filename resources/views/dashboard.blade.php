@@ -59,7 +59,12 @@
                     <ul class="dropdown-menu dropdown-menu-light dropdown-menu-end" aria-labelledby="dropdownProfile">
                       <li><a class='dropdown-item' href='profile.html'>Profiles</a></li>
                       <li><a class='dropdown-item' href='my-resume.html'>CV Manager</a></li>
-                      <li><a class='dropdown-item' href='login.html'>Logout</a></li>
+                      <li>
+                        <form action="{{route('logout')}}" method="post">
+                          @csrf
+                          <button class='dropdown-item'>Logout</button>
+                        </form>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -101,7 +106,8 @@
                   </li>
                   <li> <a class='dashboard2' href='authentication.html'><img src="/assetdash/imgs/page/dashboard/authentication.svg" alt="jobBox"><span class="name">Authentication</span></a>
                   </li>
-                  <li> <a class='dashboard2' href='login.html'><img src="/assetdash/imgs/page/dashboard/logout.svg" alt="jobBox"><span class="name">Logout</span></a>
+                  <li>
+                    <a class='dashboard2' href='{{route('logout')}}'><img src="/assetdash/imgs/page/dashboard/logout.svg" alt="jobBox"><span class="name">Logout</span></a>
                   </li>
                 </ul>
               </nav>
