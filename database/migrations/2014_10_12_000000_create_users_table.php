@@ -18,6 +18,9 @@ return new class extends Migration
             $table->tinyInteger('role')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('social_id')->nullable();
+            $table->string('social_type')->nullable();
+            $table->longText('social_image')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

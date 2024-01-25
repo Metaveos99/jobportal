@@ -9,7 +9,7 @@
               <p class="font-sm text-brand-2">Welcome back! </p>
               <h2 class="mt-10 mb-5 text-brand-1">Member Login</h2>
               <p class="font-sm text-muted mb-30">Access to all features. No credit card required.</p>
-              <button class="btn social-login hover-up mb-20"><img src="assets/imgs/template/icons/icon-google.svg" alt="jobbox"><strong>Sign in with Google</strong></button>
+              <a href="{{url('auth/google')}}" class="btn social-login hover-up mb-20"><img src="assets/imgs/template/icons/icon-google.svg" alt="jobbox"><strong>Sign in with Google</strong></a>
               <div class="divider-text-center"><span>Or continue with</span></div>
               <x-auth-session-status class="mb-4" :status="session('status')" />
             </div>
