@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\GoogleSocialiteController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,10 @@ Route::get('/', function () {
 Route::get('auth/google', [GoogleSocialiteController::class, 'redirectToGoogle']);  // redirect to google login
 Route::get('callback/google', [GoogleSocialiteController::class, 'handleCallback']);    // callback route after google account chosen
 
+Route::get('/find-a-job',[FrontendController::class,'findjob'])->name('findjob');
+Route::get('/about-us',[FrontendController::class,'aboutus'])->name('aboutus');
+Route::get('/blog',[FrontendController::class,'blog'])->name('blog');
+Route::get('/contact-us',[FrontendController::class,'contact'])->name('contact');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
