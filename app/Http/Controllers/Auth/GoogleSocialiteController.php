@@ -25,7 +25,7 @@ class GoogleSocialiteController extends Controller
             // get user data from Google
             $user = Socialite::driver('google')->stateless()->user();
 
-            
+
             // find user in the database where the social id is the same with the id provided by Google
             $finduser = User::where('email', $user->email)->first();
 
@@ -35,10 +35,15 @@ class GoogleSocialiteController extends Controller
                 Auth::login($finduser);
 
                 // redirect user to dashboard page
-                return redirect('/dashboard');
-            }
-            else
-            {
+                if (auth()->user()->role == 1) {
+                    return redirect()->intended(route('admindashboard'));
+                } elseif (auth()->user()->role == 2) {
+                    return redirect()->intended(route('dashboard'));
+                }
+                
+                return redirect('/');
+
+            } else {
                 // if user not found then this is the first time he/she try to login with Google account
                 // create user data with their Google account data
                 $newUser = User::create([
@@ -52,16 +57,18 @@ class GoogleSocialiteController extends Controller
 
                 Auth::login($newUser);
 
-                return redirect('/dashboard');
-            }
+                if (auth()->user()->role == 1) {
+                    return redirect()->intended(route('admindashboard'));
+                } elseif (auth()->user()->role == 2) {
+                    return redirect()->intended(route('dashboard'));
+                }
 
-        }
-        catch (\Exception $e)
-        {
+                return redirect('/');
+            }
+        } catch (\Exception $e) {
             Log::error('Registration failed: ' . $e);
 
             dd($e);
         }
     }
-
 }

@@ -19,7 +19,32 @@
             </div>
             <div class="header-right">
                 @auth
-                   <div class="block-signin"><a class='btn btn-default btn-shadow ml-40 hover-up' href='{{route('dashboard')}}'>Dashboard</a></div>
+                  @if (auth()->user()->role == 0)
+                  
+
+                  <div class="member-login d-flex align-items-center"><img alt="Profile Picture" src="/assetdash/imgs/page/dashboard/profile.png" style="width: 3rem;">
+
+                    <nav class="nav-main-menu">
+                      <ul class="main-menu">
+                    <li class="has-children"><a href="javascript:void(0)" id="useprol"><strong class="color-brand-1">{{(auth()->user()->name)}}</strong></a>
+                      <ul class="sub-menu">
+                        <li><a href="{{route('userprofile')}}">Profile</a></li>
+                        <li>
+                          <form action="{{route('logout')}}" method="post">
+                          @csrf
+                          <button class="btn">Logout</button>
+                         </form>
+                        </li>
+                      </ul>
+                    </li>
+                      </ul>
+                    </nav>
+                  </div>
+                  @elseif(auth()->user()->role == 2)
+                    <div class="block-signin"><a class='btn btn-default btn-shadow ml-40 hover-up' href='{{route('dashboard')}}'>Dashboard</a></div>
+                  @else
+                    <div class="block-signin"><a class='btn btn-default btn-shadow ml-40 hover-up' href='{{route('admindash')}}'>Dashboard</a></div>
+                  @endif
                 @else
                   <div class="block-signin"><a class='text-link-bd-btom hover-up' href='{{route('register')}}'>Register</a><a class='btn btn-default btn-shadow ml-40 hover-up' href='{{route('login')}}'>Sign in</a></div>
                 @endauth
