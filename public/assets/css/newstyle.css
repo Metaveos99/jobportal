@@ -1,0 +1,201 @@
+.main-menu3 li {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.main-menu3 li.hr {
+    padding: 0px 22px;
+}
+
+.main-menu3 li.hr span {
+    background-color: #E0E6F6;
+    height: 1px;
+    width: 100%;
+    display: block;
+    margin: 5px 0;
+}
+
+.main-menu3 li a {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    color: #66789C;
+    display: block;
+    text-decoration: none;
+    position: relative;
+    padding: 15px 25px;
+}
+
+.main-menu3 li a img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.main-menu3 li a span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.main-menu3 li a:hover,
+.main-menu3 li a.active {
+    background-color: #3C65F5 !important;
+    color: #ffffff !important;
+    border-radius: 8px;
+}
+
+.main-menu3 li a:hover span,
+.main-menu3 li a.active span {
+    color: #ffffff;
+}
+
+.main-menu3 li a:hover img,
+.main-menu3 li a.active img {
+    filter: invert(100%) sepia(50%) saturate(50%) hue-rotate(124deg) brightness(200%) contrast(100%);
+}
+
+.main-menu3 li a i {
+    font-size: 10px;
+    opacity: 0.5;
+    margin-left: 3px;
+}
+
+.main-menu3 li a.dashboard {
+    background: url(../imgs/page/dashboard/dashboard.svg) no-repeat 10px center;
+    padding-left: 40px;
+}
+
+.main-menu3 li a.candidates {
+    background: url(../imgs/page/dashboard/candidates.svg) no-repeat 10px center;
+    padding-left: 40px;
+}
+
+.main-menu3 li a.recruiters {
+    background: url(../imgs/page/dashboard/recruiters.svg) no-repeat 10px center;
+    padding-left: 40px;
+}
+
+.main-menu3 li a.jobs {
+    background: url(../imgs/page/dashboard/jobs.svg) no-repeat 10px center;
+    padding-left: 40px;
+}
+
+.main-menu3 li a.tasks {
+    background: url(../imgs/page/dashboard/tasks.svg) no-repeat 10px center;
+    padding-left: 40px;
+}
+
+.main-menu3 li a.myprofiles {
+    background: url(../imgs/page/dashboard/profiles.svg) no-repeat 10px center;
+    padding-left: 40px;
+}
+
+.main-menu3 li a.cvmanage {
+    background: url(../imgs/page/dashboard/cv-manage.svg) no-repeat 10px center;
+    padding-left: 40px;
+}
+
+.main-menu3 li a.settings {
+    background: url(../imgs/page/dashboard/settings.svg) no-repeat 10px center;
+    padding-left: 40px;
+}
+
+.main-menu3 li a.authentication {
+    background: url(../imgs/page/dashboard/authentication.svg) no-repeat 10px center;
+    padding-left: 40px;
+}
+
+.main-menu3 li a.logout {
+    background: url(../imgs/page/dashboard/logout.svg) no-repeat 10px center;
+    padding-left: 40px;
+}
+
+.main-menu3 li ul {
+    opacity: 0;
+    visibility: hidden;
+    transition-duration: 0.2s;
+    position: absolute;
+    top: 0px;
+    left: 100%;
+    z-index: 999;
+    min-width: 220px;
+    border-radius: 10px;
+    border: 1px solid #ececec;
+    box-shadow: 0px 10px 20px -5px rgba(10, 42, 105, 0.06);
+    background-color: #ffffff;
+    padding: 10px 0px 15px 0;
+}
+
+.main-menu3 li ul li {
+    width: 100%;
+    padding: 0px;
+}
+
+.main-menu3 li ul li a {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 14px;
+    color: #253D4E;
+    position: relative;
+    padding: 14px 22px 10px 35px;
+    transition: 0.3s;
+}
+
+.main-menu3 li ul li a::after {
+    content: "";
+    position: absolute;
+    left: 22px;
+    top: 50%;
+    width: 5px;
+    height: 5px;
+    background-color: #05264E;
+    border-radius: 50%;
+    opacity: 0.7;
+    transition-duration: 0.2s;
+}
+
+.main-menu3 li ul li a:hover,
+.main-menu3 li ul li a.active {
+    padding-left: 38px;
+    transition: 0.5s;
+}
+
+.main-menu3 li ul li a:hover::after,
+.main-menu3 li ul li a.active::after {
+    opacity: 1;
+    transition-duration: 0.3s;
+}
+
+.main-menu3 li ul li a:hover::before,
+.main-menu3 li ul li a.active::before {
+    display: none;
+}
+
+.main-menu3 li ul li ul {
+    top: 0px;
+    left: 100%;
+}
+
+.main-menu3 li:hover>ul {
+    opacity: 1;
+    visibility: visible;
+    margin-top: 15px;
+}
+
+.main-menu3 li:hover>ul li {
+    width: 100%;
+}
+.border-right {
+border-right: 1px solid #E0E6F7;
+
+}
+
+@media (max-width: 1200px){
+.usernavsidebar{
+  display: none;
+}
+}

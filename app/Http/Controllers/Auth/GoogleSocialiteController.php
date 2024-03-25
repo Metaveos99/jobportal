@@ -36,7 +36,7 @@ class GoogleSocialiteController extends Controller
 
                 // redirect user to dashboard page
                 if (auth()->user()->role == 1) {
-                    return redirect()->intended(route('admindashboard'));
+                    return redirect()->intended(route('admindash'));
                 } elseif (auth()->user()->role == 2) {
                     return redirect()->intended(route('dashboard'));
                 }

@@ -40,8 +40,8 @@
               <div class="text-muted text-center">Don't have an Account? <a href='{{route('register')}}'>Sign up</a></div>
             </form>
           </div>
-          <div class="img-1 d-none d-lg-block"><img class="shape-1" src="assets/imgs/page/login-register/img-4.svg" alt="JobBox"></div>
-          <div class="img-2"><img src="assets/imgs/page/login-register/img-3.svg" alt="JobBox"></div>
+          <div class="img-1 d-none d-lg-block"><img class="shape-1" src="/assets/imgs/page/login-register/img-4.svg" alt="JobBox"></div>
+          <div class="img-2"><img src="/assets/imgs/page/login-register/img-3.svg" alt="JobBox"></div>
         </div>
       </div>
 

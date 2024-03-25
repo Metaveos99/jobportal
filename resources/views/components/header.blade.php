@@ -10,6 +10,13 @@
                 <ul class="main-menu">
                   <li><a class='{{Route::is('home') ? 'active' : '' }}' href='{{route('home')}}'>Home</a></li>
                   <li><a class='{{Route::is('findjob') ? 'active' : '' }}' href='{{route('findjob')}}'>Find a Job</a></li>
+                  @auth
+                    @if (auth()->user()->role != 0)
+                      <li><a class='{{Route::is('recruiters') ? 'active' : '' }}' href='{{route('recruiters')}}'>For Recruiters</a></li>
+                    @endif
+                  @else
+                  <li><a class='{{Route::is('recruiters') ? 'active' : '' }}' href='{{route('recruiters')}}'>For Recruiters</a></li>
+                  @endauth
                   <li><a class='{{Route::is('aboutus') ? 'active' : '' }}' href='{{route('aboutus')}}'>About Us</a></li>
                   <li><a class='{{Route::is('blog') ? 'active' : '' }}' href='{{route('blog')}}'>Blog</a></li>
                   <li><a class='{{Route::is('contact') ? 'active' : '' }}' href='{{route('contact')}}'>Contact Us</a></li>
@@ -65,62 +72,52 @@
                 <!-- mobile menu start-->
                 <nav>
                   <ul class="mobile-menu font-heading">
-                    <li><a class='active' href='{{route('home')}}'>Home</a>
-                    </li>
-                    <li class="has-children"><a href='jobs-grid.html'>Find a Job</a>
-                      <ul class="sub-menu">
-                        <li><a href='jobs-grid.html'>Jobs Grid</a></li>
-                        <li><a href='jobs-list.html'>Jobs List</a></li>
-                        <li><a href='job-details.html'>Jobs Details</a></li>
-                        <li><a href='job-details-2.html'>Jobs Details 2</a></li>
-                      </ul>
-                    </li>
-                    <li class="has-children"><a href='companies-grid.html'>Recruiters</a>
-                      <ul class="sub-menu">
-                        <li><a href='companies-grid.html'>Recruiters</a></li>
-                        <li><a href='company-details.html'>Company Details</a></li>
-                      </ul>
-                    </li>
-                    <li class="has-children"><a href='candidates-grid.html'>Candidates</a>
-                      <ul class="sub-menu">
-                        <li><a href='candidates-grid.html'>Candidates Grid</a></li>
-                        <li><a href='candidate-details.html'>Candidate Details</a></li>
-                      </ul>
-                    </li>
-                    <li class="has-children"><a href='blog-grid.html'>Pages</a>
-                      <ul class="sub-menu">
-                        <li><a href='page-about.html'>About Us</a></li>
-                        <li><a href='page-pricing.html'>Pricing Plan</a></li>
-                        <li><a href='page-contact.html'>Contact Us</a></li>
-                        <li><a href='{{route('register')}}'>Register</a></li>
-                        <li><a href='{{route('login')}}'>Signin</a></li>
-                        <li><a href='page-reset-password.html'>Reset Password</a></li>
-                        <li><a href='page-content-protected.html'>Content Protected</a></li>
-                        <li><a href='page-404.html'>404 Error</a></li>
-                      </ul>
-                    </li>
-                    <li class="has-children"><a href='blog-grid.html'>Blog</a>
-                      <ul class="sub-menu">
-                        <li><a href='blog-grid.html'>Blog Grid</a></li>
-                        <li><a href='blog-grid-2.html'>Blog Grid 2</a></li>
-                        <li><a href='blog-details.html'>Blog Single</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="http://wp.alithemes.com/html/jobbox/demos/dashboard" target="_blank">Dashboard</a></li>
+                    <li><a class='{{Route::is('home') ? 'active' : '' }}' href='{{route('home')}}'>Home</a></li>
+                    <li><a class='{{Route::is('findjob') ? 'active' : '' }}' href='{{route('findjob')}}'>Find a Job</a></li>
+                    @auth
+                    @if (auth()->user()->role != 0)
+                      <li><a class='{{Route::is('recruiters') ? 'active' : '' }}' href='{{route('recruiters')}}'>For Recruiters</a></li>
+                    @endif
+                  @else
+                  <li><a class='{{Route::is('recruiters') ? 'active' : '' }}' href='{{route('recruiters')}}'>For Recruiters</a></li>
+                  @endauth
+                    <li><a class='{{Route::is('aboutus') ? 'active' : '' }}' href='{{route('aboutus')}}'>About Us</a></li>
+                    <li><a class='{{Route::is('blog') ? 'active' : '' }}' href='{{route('blog')}}'>Blog</a></li>
+                    <li><a class='{{Route::is('contact') ? 'active' : '' }}' href='{{route('contact')}}'>Contact Us</a></li>
+                    @auth
+                      @if(auth()->user()->role == 2)
+                      <div><a href='{{route('dashboard')}}'>Dashboard</a></div>
+                      @elseif(auth()->user()->role == 1)
+                        <div><a href='{{route('admindash')}}'>Dashboard</a></div>
+                      @endif
+                    @else
+                    <li><a class='{{Route::is('login') ? 'active' : '' }}' href='{{route('login')}}'>Login</a></li>
+                    <li><a class='{{Route::is('register') ? 'active' : '' }}' href='{{route('register')}}'>Register</a></li>
+                    @endauth
                   </ul>
                 </nav>
               </div>
-              <div class="mobile-account">
-                <h6 class="mb-10">Your Account</h6>
-                <ul class="mobile-menu font-heading">
-                  <li><a href="#">Profile</a></li>
-                  <li><a href="#">Work Preferences</a></li>
-                  <li><a href="#">Account Settings</a></li>
-                  <li><a href="#">Go Pro</a></li>
-                  <li><a href='{{route('login')}}'>Sign Out</a></li>
-                </ul>
-              </div>
-              <div class="site-copyright">Copyright 2022 &copy; JobBox.<br>Designed by AliThemes.</div>
+              @auth
+              @if (auth()->user()->role == 0)
+                <div class="mobile-account">
+                  <h6 class="mb-10">Your Account</h6>
+                  <ul class="mobile-menu font-heading">
+                    <li><a href="{{route('userprofile')}}#home-tab-pane">Dashboard</a></li>
+                    <li><a href="{{route('userprofile')}}#my-jobs-tab-pane">My Jobs</a></li>
+                    <li><a href="{{route('userprofile')}}#my-profile-tab-pane">My Profile</a></li>
+                    <li><a href="{{route('userprofile')}}#cv-manage-tab-pane">Manage CV</a></li>
+                    <li><a href="{{route('userprofile')}}#change-password-tab-pane">Change Password</a></li>
+                    <li>
+                      <form action="{{route('logout')}}" method="post">
+                        @csrf
+                        <button class="btn p-0">Logout</button>
+                      </form>
+                    </li>
+                  </ul>
+                </div>
+              @endif
+              @endauth
+              
             </div>
           </div>
         </div>

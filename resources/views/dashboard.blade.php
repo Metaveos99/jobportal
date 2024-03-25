@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="msapplication-TileColor" content="#0E0E0E">
     <meta name="template-color" content="#0E0E0E">
-    <link rel="manifest" href="manifest.html" crossorigin>
+    
     <meta name="msapplication-config" content="browserconfig.html">
     <meta name="description" content="Index page">
     <meta name="keywords" content="index, page">

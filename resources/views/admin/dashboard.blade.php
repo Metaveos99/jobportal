@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="msapplication-TileColor" content="#0E0E0E">
     <meta name="template-color" content="#0E0E0E">
-    <link rel="manifest" href="manifest.html" crossorigin>
+    
     <meta name="msapplication-config" content="browserconfig.html">
     <meta name="description" content="Index page">
     <meta name="keywords" content="index, page">
@@ -17,154 +17,9 @@
     <title>Jobbox Dashboard - Job Portal HTML Template </title>
   </head>
   <body>
-    <div id="preloader-active">
-      <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="preloader-inner position-relative">
-          <div class="text-center"><img src="/assetdash/imgs/template/loading.gif" alt="jobBox"></div>
-        </div>
-      </div>
-    </div>
-    <header class="header sticky-bar"> 
-      <div class="container">
-        <div class="main-header">
-          <div class="header-left">
-            <div class="header-logo"><a class='d-flex' href='index.html'><img alt="jobBox" src="/assetdash/imgs/page/dashboard/logo.svg"></a></div><span class="btn btn-grey-small ml-10">Admin area</span>
-          </div>
-          <div class="header-search"> 
-            <div class="box-search"> 
-              <form action="#">
-                <input class="form-control input-search" type="text" name="keyword" placeholder="Search">
-              </form>
-            </div>
-          </div>
-          <div class="header-menu d-none d-md-block">
-            <ul> 
-              <li>        <a href="http://wp.alithemes.com/html/jobbox/demos/index.html">Home </a></li>
-              <li> <a href="http://wp.alithemes.com/html/jobbox/demos/page-about.html">About us </a></li>
-              <li> <a href="http://wp.alithemes.com/html/jobbox/demos/page-contact.html">Contact</a></li>
-            </ul>
-          </div>
-          <div class="header-right">
-            <div class="block-signin"><a class='btn btn-default icon-edit hover-up' href='post-job.html'>Post Job</a>
-              <div class="dropdown d-inline-block"><a class="btn btn-notify" id="dropdownNotify" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static"></a>
-                <ul class="dropdown-menu dropdown-menu-light dropdown-menu-end" aria-labelledby="dropdownNotify">
-                  <li><a class="dropdown-item active" href="#">10 notifications</a></li>
-                  <li><a class="dropdown-item" href="#">12 messages</a></li>
-                  <li><a class="dropdown-item" href="#">20 replies</a></li>
-                </ul>
-              </div>
-              <div class="member-login"><img alt="" src="/assetdash/imgs/page/dashboard/profile.png">
-                <div class="info-member"> <strong class="color-brand-1">Steven Jobs</strong>
-                  <div class="dropdown"><a class="font-xs color-text-paragraph-2 icon-down" id="dropdownProfile" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">Super Admin</a>
-                    <ul class="dropdown-menu dropdown-menu-light dropdown-menu-end" aria-labelledby="dropdownProfile">
-                      <li><a class='dropdown-item' href='profile.html'>Profiles</a></li>
-                      <li><a class='dropdown-item' href='my-resume.html'>CV Manager</a></li>
-                      <li>
-                        <form action="{{route('logout')}}" method="post">
-                          @csrf
-                          <button class='dropdown-item'>Logout</button>
-                        </form>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-    <div class="burger-icon burger-icon-white"><span class="burger-icon-top"></span><span class="burger-icon-mid"></span><span class="burger-icon-bottom"></span></div>
-    <div class="mobile-header-active mobile-header-wrapper-style perfect-scrollbar">
-      <div class="mobile-header-wrapper-inner">
-        <div class="mobile-header-content-area">
-          <div class="perfect-scroll">
-            <div class="mobile-search mobile-header-border mb-30">
-              <form action="#">
-                <input type="text" placeholder="Search…"><i class="fi-rr-search"></i>
-              </form>
-            </div>
-            <div class="mobile-menu-wrap mobile-header-border">
-              <!-- mobile menu start-->
-              <nav>
-                <ul class="main-menu">
-                  <li> <a class='dashboard2 active' href='index.html'><img src="/assetdash/imgs/page/dashboard/dashboard.svg" alt="jobBox"><span class="name">Dashboard</span></a>
-                  </li>
-                  <li> <a class='dashboard2' href='candidates.html'><img src="/assetdash/imgs/page/dashboard/candidates.svg" alt="jobBox"><span class="name">Candidates</span></a>
-                  </li>
-                  <li> <a class='dashboard2' href='recruiters.html'><img src="/assetdash/imgs/page/dashboard/recruiters.svg" alt="jobBox"><span class="name">Recruiters</span></a>
-                  </li>
-                  <li> <a class='dashboard2' href='my-job-grid.html'><img src="/assetdash/imgs/page/dashboard/jobs.svg" alt="jobBox"><span class="name">My Jobs</span></a>
-                  </li>
-                  <li> <a class='dashboard2' href='my-tasks-list.html'><img src="/assetdash/imgs/page/dashboard/tasks.svg" alt="jobBox"><span class="name">Tasks List</span></a>
-                  </li>
-                  <li> <a class='dashboard2' href='profile.html'><img src="/assetdash/imgs/page/dashboard/profiles.svg" alt="jobBox"><span class="name">My Profiles</span></a>
-                  </li>
-                  <li> <a class='dashboard2' href='my-resume.html'><img src="/assetdash/imgs/page/dashboard/cv-manage.svg" alt="jobBox"><span class="name">CV Manage</span></a>
-                  </li>
-                  <li> <a class='dashboard2' href='settings.html'><img src="/assetdash/imgs/page/dashboard/settings.svg" alt="jobBox"><span class="name">Setting</span></a>
-                  </li>
-                  <li> <a class='dashboard2' href='authentication.html'><img src="/assetdash/imgs/page/dashboard/authentication.svg" alt="jobBox"><span class="name">Authentication</span></a>
-                  </li>
-                  <li>
-                    <a class='dashboard2' href='{{route('logout')}}'><img src="/assetdash/imgs/page/dashboard/logout.svg" alt="jobBox"><span class="name">Logout</span></a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-            <div class="mobile-account">
-              <h6 class="mb-10">Your Account</h6>
-              <ul class="mobile-menu font-heading">
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Work Preferences</a></li>
-                <li><a href="#">Account Settings</a></li>
-                <li><a href="#">Go Pro</a></li>
-                <li><a href="page-signin.html">Sign Out</a></li>
-              </ul>
-              <div class="mb-15 mt-15"> <a class='btn btn-default icon-edit hover-up' href='post-job.html'>Post Job</a></div>
-            </div>
-            <div class="site-copyright">Copyright 2022 &copy; JobBox. <br>Designed by AliThemes.</div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <x-adminheader/>
     <main class="main">
-      <div class="nav"><a class="btn btn-expanded"></a>
-        <nav class="nav-main-menu">
-          <ul class="main-menu">
-            <li> <a class='dashboard2 active' href='index.html'><img src="/assetdash/imgs/page/dashboard/dashboard.svg" alt="jobBox"><span class="name">Dashboard</span></a>
-            </li>
-            <li> <a class='dashboard2' href='candidates.html'><img src="/assetdash/imgs/page/dashboard/candidates.svg" alt="jobBox"><span class="name">Candidates</span></a>
-            </li>
-            <li> <a class='dashboard2' href='recruiters.html'><img src="/assetdash/imgs/page/dashboard/recruiters.svg" alt="jobBox"><span class="name">Recruiters</span></a>
-            </li>
-            <li> <a class='dashboard2' href='my-job-grid.html'><img src="/assetdash/imgs/page/dashboard/jobs.svg" alt="jobBox"><span class="name">My Jobs</span></a>
-            </li>
-            <li> <a class='dashboard2' href='my-tasks-list.html'><img src="/assetdash/imgs/page/dashboard/tasks.svg" alt="jobBox"><span class="name">Tasks List</span></a>
-            </li>
-            <li> <a class='dashboard2' href='profile.html'><img src="/assetdash/imgs/page/dashboard/profiles.svg" alt="jobBox"><span class="name">My Profiles</span></a>
-            </li>
-            <li> <a class='dashboard2' href='my-resume.html'><img src="/assetdash/imgs/page/dashboard/cv-manage.svg" alt="jobBox"><span class="name">CV Manage</span></a>
-            </li>
-            <li> <a class='dashboard2' href='settings.html'><img src="/assetdash/imgs/page/dashboard/settings.svg" alt="jobBox"><span class="name">Setting</span></a>
-            </li>
-            <li> <a class='dashboard2' href='authentication.html'><img src="/assetdash/imgs/page/dashboard/authentication.svg" alt="jobBox"><span class="name">Authentication</span></a>
-            </li>
-            <li> <a class='dashboard2' href='login.html'><img src="/assetdash/imgs/page/dashboard/logout.svg" alt="jobBox"><span class="name">Logout</span></a>
-            </li>
-          </ul>
-        </nav>
-        <div class="border-bottom mb-20 mt-20"></div>
-        <div class="box-profile-completed text-center mb-30">
-          <div id="circle-staticstic-demo"></div>
-          <h6 class="mb-10">Profile Completed</h6>
-          <p class="font-xs color-text-mutted">Please add detailed information to your profile. This will help you develop your career more quickly.</p>
-        </div>
-        <div class="sidebar-border-bg mt-50"><span class="text-grey">WE ARE</span><span class="text-hiring">HIRING</span>
-          <p class="font-xxs color-text-paragraph mt-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae architecto</p>
-          <div class="mt-15"><a class="btn btn-paragraph-2" href="#">Know More</a></div>
-        </div>
-      </div>
+      <x-adminnavbar/>
       <div class="box-content">
         <div class="box-heading">
           <div class="box-title"> 
@@ -641,25 +496,7 @@
             </div>
           </div>
         </div>
-        <footer class="footer mt-20">
-          <div class="container">
-            <div class="box-footer">
-              <div class="row">
-                <div class="col-md-6 col-sm-12 mb-25 text-center text-md-start">
-                  <p class="font-sm color-text-paragraph-2">© 2022 - <a class="color-brand-2" href="https://themeforest.net/item/jobbox-job-portal-html-bootstrap-5-template/39217891" target="_blank">JobBox </a>Dashboard <span> Made by  </span><a class="color-brand-2" href="http://alithemes.com/" target="_blank"> AliThemes</a></p>
-                </div>
-                <div class="col-md-6 col-sm-12 text-center text-md-end mb-25">
-                  <ul class="menu-footer">
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Policy</a></li>
-                    <li><a href="#">Contact</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <x-adminfooter/>
       </div>
     </main>
     <script src="/assetdash/js/vendor/modernizr-3.6.0.min.js"></script>
